@@ -1,7 +1,7 @@
 // 
 //  pwm.v
 //  Top level Verilog code for PWM Generator
-// 
+//  
 //  Created  by Juan Diego Ocampo on 03/05/2018.
 //  Copyright © 2018 Juan Diego Ocampo. All rights reserved.
 //
