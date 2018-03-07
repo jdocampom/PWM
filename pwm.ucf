@@ -1,0 +1,32 @@
+##
+## pwm.ucf
+## Universal Constraints File for PWM Generator
+##
+## Created by Juan Diego Ocampo on 03/05/2018.
+## Copyright © 2018 Juan Diego Ocampo. All rights reserved.
+##
+
+# CLK Signal
+NET "clk"   LOC = "E3"	| IOSTANDARD = "LVCMOS33";
+NET "clk" TNM_NET = sys_clk_pin;
+TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100 MHz HIGH 50%;
+
+# Period
+NET "period<0>" LOC = A13 | IOSTANDARD = LVCMOS33; #JXADC_0
+NET "period<1>" LOC = B16 | IOSTANDARD = LVCMOS33; #JXADC_2
+NET "period<2>" LOC = A14 | IOSTANDARD = LVCMOS33; #JXADC_4
+NET "period<3>" LOC = B17 | IOSTANDARD = LVCMOS33; #JXADC_6
+NET "period<4>" LOC = B13 | IOSTANDARD = LVCMOS33; #JA_0
+
+# Duty
+NET "duty<0>" LOC = A15 | IOSTANDARD = LVCMOS33; #JXADC_1
+NET "duty<1>" LOC = B18 | IOSTANDARD = LVCMOS33; #JXADC_3
+NET "duty<2>" LOC = A16 | IOSTANDARD = LVCMOS33; #JXADC_5
+NET "duty<3>" LOC = A18 | IOSTANDARD = LVCMOS33; #JXADC_7
+NET "duty<4>" LOC = F14 | IOSTANDARD = LVCMOS33; #JA_1
+
+# Servo
+NET "servo<0>" LOC = D17 | IOSTANDARD = LVCMOS33; #JA_2
+
+# Out
+NET "out<0>" LOC = E17 | IOSTANDARD = LVCMOS33; #JA_3

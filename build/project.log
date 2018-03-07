@@ -1,0 +1,468 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "project.src"
+Input Format                       : mixed
+
+---- Target Parameters
+Target Device                      : xc7a100t-3csg324
+Output File Name                   : "project.ngc"
+Output Format                      : NGC
+
+---- Source Options
+Top Module Name                    : pwm
+
+---- General Options
+Optimization Goal                  : Area
+Optimization Effort                : 1
+RTL Output                         : yes
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "/home/juandiegoocampo/Dropbox/PWM/pwm.v" into library work
+Parsing module <pwm>.
+Analyzing Verilog file "/home/juandiegoocampo/Dropbox/PWM/counter.v" into library work
+Parsing module <counter>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <pwm>.
+
+Elaborating module <counter>.
+WARNING:HDLCompiler:413 - "/home/juandiegoocampo/Dropbox/PWM/counter.v" Line 29: Result of 16-bit expression is truncated to fit in 15-bit target.
+WARNING:HDLCompiler:413 - "/home/juandiegoocampo/Dropbox/PWM/counter.v" Line 32: Result of 7-bit expression is truncated to fit in 6-bit target.
+WARNING:HDLCompiler:413 - "/home/juandiegoocampo/Dropbox/PWM/pwm.v" Line 63: Result of 32-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "/home/juandiegoocampo/Dropbox/PWM/pwm.v" Line 67: Result of 32-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "/home/juandiegoocampo/Dropbox/PWM/pwm.v" Line 71: Result of 32-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "/home/juandiegoocampo/Dropbox/PWM/pwm.v" Line 75: Result of 32-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "/home/juandiegoocampo/Dropbox/PWM/pwm.v" Line 79: Result of 32-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "/home/juandiegoocampo/Dropbox/PWM/pwm.v" Line 83: Result of 32-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "/home/juandiegoocampo/Dropbox/PWM/pwm.v" Line 87: Result of 32-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "/home/juandiegoocampo/Dropbox/PWM/pwm.v" Line 91: Result of 32-bit expression is truncated to fit in 1-bit target.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <pwm>.
+    Related source file is "/home/juandiegoocampo/Dropbox/PWM/pwm.v".
+WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 32-bit register for signal <period0>.
+    Found 32-bit register for signal <duty0>.
+    Found 1-bit register for signal <en1>.
+    Found 32-bit register for signal <period1>.
+    Found 32-bit register for signal <duty1>.
+    Found 1-bit register for signal <en2>.
+    Found 32-bit register for signal <period2>.
+    Found 32-bit register for signal <duty2>.
+    Found 1-bit register for signal <en3>.
+    Found 32-bit register for signal <period3>.
+    Found 32-bit register for signal <duty3>.
+    Found 1-bit register for signal <en4>.
+    Found 32-bit register for signal <period4>.
+    Found 32-bit register for signal <duty4>.
+    Found 1-bit register for signal <en5>.
+    Found 32-bit register for signal <period5>.
+    Found 32-bit register for signal <duty5>.
+    Found 1-bit register for signal <en6>.
+    Found 32-bit register for signal <period6>.
+    Found 32-bit register for signal <duty6>.
+    Found 1-bit register for signal <en7>.
+    Found 32-bit register for signal <period7>.
+    Found 32-bit register for signal <duty7>.
+    Found 32-bit register for signal <dout>.
+    Found 1-bit register for signal <en0>.
+    Summary:
+	inferred 552 D-type flip-flop(s).
+	inferred  72 Multiplexer(s).
+Unit <pwm> synthesized.
+
+Synthesizing Unit <counter>.
+    Related source file is "/home/juandiegoocampo/Dropbox/PWM/counter.v".
+    Found 15-bit register for signal <contmsec>.
+    Found 1-bit register for signal <state>.
+    Found 6-bit register for signal <contusec>.
+    Found 32-bit subtractor for signal <period[31]_GND_2_o_sub_4_OUT> created at line 26.
+    Found 32-bit subtractor for signal <duty[31]_GND_2_o_sub_17_OUT> created at line 39.
+    Found 15-bit adder for signal <contmsec[14]_GND_2_o_add_5_OUT> created at line 29.
+    Found 6-bit adder for signal <contusec[5]_GND_2_o_add_7_OUT> created at line 32.
+    Found 32-bit comparator lessequal for signal <n0002> created at line 26
+    Found 32-bit comparator lessequal for signal <n0015> created at line 39
+    Summary:
+	inferred   4 Adder/Subtractor(s).
+	inferred  22 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+Unit <counter> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 32
+ 15-bit adder                                          : 8
+ 32-bit subtractor                                     : 16
+ 6-bit adder                                           : 8
+# Registers                                            : 49
+ 1-bit register                                        : 16
+ 15-bit register                                       : 8
+ 32-bit register                                       : 17
+ 6-bit register                                        : 8
+# Comparators                                          : 16
+ 32-bit comparator lessequal                           : 16
+# Multiplexers                                         : 72
+ 1-bit 2-to-1 multiplexer                              : 14
+ 32-bit 2-to-1 multiplexer                             : 58
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <counter>.
+The following registers are absorbed into counter <contmsec>: 1 register on signal <contmsec>.
+The following registers are absorbed into counter <contusec>: 1 register on signal <contusec>.
+Unit <counter> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 16
+ 32-bit subtractor                                     : 16
+# Counters                                             : 16
+ 15-bit up counter                                     : 8
+ 6-bit up counter                                      : 8
+# Registers                                            : 560
+ Flip-Flops                                            : 560
+# Comparators                                          : 16
+ 32-bit comparator lessequal                           : 16
+# Multiplexers                                         : 103
+ 1-bit 2-to-1 multiplexer                              : 46
+ 32-bit 2-to-1 multiplexer                             : 57
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <pwm> ...
+
+Optimizing unit <counter> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 0) on block pwm, actual ratio is 3.
+FlipFlop dout_31 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_30 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_29 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_28 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_27 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_26 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_25 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_24 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_23 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_22 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_21 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_20 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_19 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_18 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_17 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_16 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_15 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_14 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_13 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_12 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_11 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_10 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_9 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_8 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_7 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_6 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_5 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_4 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_3 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_2 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_1 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop dout_0 has been replicated 1 time(s) to handle iob=true attribute.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 760
+ Flip-Flops                                            : 760
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : project.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 3536
+#      GND                         : 1
+#      INV                         : 512
+#      LUT1                        : 128
+#      LUT2                        : 27
+#      LUT3                        : 289
+#      LUT4                        : 535
+#      LUT5                        : 144
+#      LUT6                        : 445
+#      MUXCY                       : 784
+#      MUXF7                       : 38
+#      VCC                         : 1
+#      XORCY                       : 632
+# FlipFlops/Latches                : 760
+#      FD                          : 519
+#      FDE                         : 73
+#      FDRE                        : 168
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 81
+#      IBUF                        : 41
+#      OBUF                        : 40
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 7a100tcsg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             720  out of  126800     0%  
+ Number of Slice LUTs:                 2080  out of  63400     3%  
+    Number used as Logic:              2080  out of  63400     3%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   2081
+   Number with an unused Flip Flop:    1361  out of   2081    65%  
+   Number with an unused LUT:             1  out of   2081     0%  
+   Number of fully used LUT-FF pairs:   719  out of   2081    34%  
+   Number of unique control sets:        27
+
+IO Utilization: 
+ Number of IOs:                          83
+ Number of bonded IOBs:                  82  out of    210    39%  
+    IOB Flip Flops/Latches:              40
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 760   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 4.103ns (Maximum Frequency: 243.718MHz)
+   Minimum input arrival time before clock: 5.298ns
+   Maximum output required time after clock: 0.640ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 4.103ns (frequency: 243.718MHz)
+  Total number of paths / destination ports: 99767 / 1103
+-------------------------------------------------------------------------
+Delay:               4.103ns (Levels of Logic = 29)
+  Source:            period4_0 (FF)
+  Destination:       pwm4/contmsec_14 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: period4_0 to pwm4/contmsec_14
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               3   0.361   0.305  period4_0 (period4_0)
+     LUT1:I0->O            1   0.097   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<0>_rt (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<0>_rt)
+     MUXCY:S->O            1   0.353   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<0> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<1> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<2> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<3> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<4> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<4>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<5> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<5>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<6> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<6>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<7> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<7>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<8> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<8>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<9> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<9>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<10> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<10>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<11> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<11>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<12> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<12>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<13> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<13>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<14> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<14>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<15> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<15>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<16> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<16>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<17> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<17>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<18> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<18>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<19> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<19>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<20> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<20>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<21> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<21>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<22> (pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_cy<22>)
+     XORCY:CI->O           1   0.370   0.683  pwm4/Msub_period[31]_GND_2_o_sub_4_OUT_xor<23> (pwm4/period[31]_GND_2_o_sub_4_OUT<23>)
+     LUT5:I0->O            1   0.097   0.000  pwm4/Mcompar_period[31]_GND_2_o_LessThan_5_o_lut<9> (pwm4/Mcompar_period[31]_GND_2_o_LessThan_5_o_lut<9>)
+     MUXCY:S->O            1   0.353   0.000  pwm4/Mcompar_period[31]_GND_2_o_LessThan_5_o_cy<9> (pwm4/Mcompar_period[31]_GND_2_o_LessThan_5_o_cy<9>)
+     MUXCY:CI->O           1   0.023   0.000  pwm4/Mcompar_period[31]_GND_2_o_LessThan_5_o_cy<10> (pwm4/period[31]_GND_2_o_LessThan_5_o)
+     MUXCY:CI->O          15   0.262   0.344  pwm4/_n00451_cy (pwm4/_n0045)
+     FDRE:R                    0.349          pwm4/contmsec_0
+    ----------------------------------------
+    Total                      4.103ns (2.771ns logic, 1.332ns route)
+                                       (67.5% logic, 32.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 21960 / 649
+-------------------------------------------------------------------------
+Offset:              5.298ns (Levels of Logic = 10)
+  Source:            adrs<6> (PAD)
+  Destination:       dout_10 (FF)
+  Destination Clock: clk rising
+
+  Data Path: adrs<6> to dout_10
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             6   0.001   0.534  adrs_6_IBUF (adrs_6_IBUF)
+     LUT3:I0->O           10   0.097   0.337  adrs[6]_GND_1_o_equal_10_o<6>11 (adrs[6]_GND_1_o_equal_10_o<6>1)
+     LUT5:I4->O           35   0.097   0.791  adrs[6]_GND_1_o_equal_11_o<6>1 (adrs[6]_GND_1_o_equal_11_o)
+     LUT5:I0->O           32   0.097   0.800  Mmux_adrs[6]_GND_1_o_select_92_OUT10031 (Mmux_adrs[6]_GND_1_o_select_92_OUT1003)
+     LUT6:I0->O           31   0.097   0.402  Mmux_adrs[6]_GND_1_o_select_92_OUT102111 (Mmux_adrs[6]_GND_1_o_select_92_OUT10211)
+     LUT4:I3->O            1   0.097   0.379  Mmux_adrs[6]_GND_1_o_select_92_OUT103 (Mmux_adrs[6]_GND_1_o_select_92_OUT101)
+     LUT6:I4->O            2   0.097   0.697  Mmux_adrs[6]_GND_1_o_select_92_OUT107 (Mmux_adrs[6]_GND_1_o_select_92_OUT104)
+     LUT6:I0->O            1   0.097   0.000  Mmux_adrs[6]_GND_1_o_select_92_OUT108_F (N20)
+     MUXF7:I0->O           1   0.277   0.295  Mmux_adrs[6]_GND_1_o_select_92_OUT108 (Mmux_adrs[6]_GND_1_o_select_92_OUT105)
+     LUT6:I5->O            2   0.097   0.000  Mmux_adrs[6]_GND_1_o_select_92_OUT109 (adrs[6]_GND_1_o_select_92_OUT<10>)
+     FDE:D                     0.008          dout_10
+    ----------------------------------------
+    Total                      5.298ns (1.062ns logic, 4.236ns route)
+                                       (20.0% logic, 80.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 40 / 40
+-------------------------------------------------------------------------
+Offset:              0.640ns (Levels of Logic = 1)
+  Source:            dout_31_1 (FF)
+  Destination:       dout<31> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: dout_31_1 to dout<31>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.361   0.279  dout_31_1 (dout_31_1)
+     OBUF:I->O                 0.000          dout_31_OBUF (dout<31>)
+    ----------------------------------------
+    Total                      0.640ns (0.361ns logic, 0.279ns route)
+                                       (56.4% logic, 43.6% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    4.103|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 11.19 secs
+ 
+--> 
+
+
+Total memory usage is 505260 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   11 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
